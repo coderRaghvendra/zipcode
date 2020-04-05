@@ -51,9 +51,11 @@ public class ZipCodeService {
             if(distinctStates.size() == 1) {
                 LOGGER.info("One state found only, hence returning zips");
                 zipCodes.forEach(zipCode -> zips.add(zipCode.getZip()));
-            } else {
+            } else if(distinctStates.size() > 1) {
                 LOGGER.info("Many state found , hence returning states");
                 distinctStates.forEach(ds -> states.add(ds));
+            } else {
+                LOGGER.info("No state found for city = " + city);
             }
         } catch (Exception e) {
             LOGGER.error("Exception occurred while fetching data for city = " + city, e);
