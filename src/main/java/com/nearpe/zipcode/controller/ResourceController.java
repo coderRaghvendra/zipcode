@@ -8,10 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by raghvendra.mishra on 05/04/20.
  */
 @Controller
-public class TestController {
+public class ResourceController {
 
-    @RequestMapping("/welcome")
-    public ModelAndView firstPage() {
-        return new ModelAndView("welcome");
+    @RequestMapping("/zip-lookup")
+    public ModelAndView zipLookUp() {
+        return new ModelAndView("zipLookUp");
     }
 }
