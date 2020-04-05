@@ -6,8 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public class NewsFeedDAOImpl {
 //		implements PersonDAO {
@@ -46,9 +44,9 @@ public class NewsFeedDAOImpl {
 //	}
 
 //	@Override
-	public NewsFeed getNewsFeedById(long id) {
+	public ZipCode getNewsFeedById(long id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		NewsFeed nf = (NewsFeed) session.load(NewsFeed.class, new Long(id));
+		ZipCode nf = (ZipCode) session.load(ZipCode.class, new Long(id));
 		logger.info("Person loaded successfully, Person details="+nf);
 		return nf;
 	}
