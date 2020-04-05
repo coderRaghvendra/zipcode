@@ -1,7 +1,7 @@
 package com.nearpe.zipcode.controller;
 
-import com.nearpe.zipcode.repository.ZipCodeRepository;
 import com.nearpe.zipcode.entity.ZipCode;
+import com.nearpe.zipcode.response.StateZipCodeDto;
 import com.nearpe.zipcode.service.ZipCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +18,16 @@ public class ZipController {
     @Autowired
     private ZipCodeService zipCodeService;
 
-    @GetMapping("/states")
-    public List<ZipCode> states() {
-//        NewsFeedDAOImpl impl = new NewsFeedDAOImpl();
-        List<ZipCode> zipCodes = zipCodeService.getZipCodeByState("NH");
-        return zipCodes; // postId
-//        return new User(1234); // postId
+    @GetMapping("/states/{state}")
+    public List<String> states(String state) {
+        List<String> cities = zipCodeService.getCitiesByState(state);
+        return cities;
+    }
+
+    @GetMapping("/cities/{city}")
+    public StateZipCodeDto cities(String city) {
+        StateZipCodeDto stateZipCodeDto = zipCodeService.getStateZipCodeByCity(city);
+        return stateZipCodeDto;
     }
 
 //    public static void main(String[] args) {

@@ -35,8 +35,4 @@ public class ZipCode {
 
     @Column(name = "dst", nullable = false)
     private long dst;
-
-//    public long getPostId1() {
-//        return postId;
-//    }
 }
