@@ -8,10 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by raghvendra.mishra on 05/04/20.
  */
 @Controller
-public class ResourceIController implements IController {
+public class ResourceController implements IController {
 
     @RequestMapping(ZIP_LOOK_UP)
     public ModelAndView zipLookUp() {
-        return new ModelAndView("zipLookUp");
+        return new ModelAndView(ZIP_LOOK_UP_JSP);
     }
 }

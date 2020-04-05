@@ -5,6 +5,8 @@ package com.nearpe.zipcode.controller;
  */
 public interface IController {
 
+    String ZIP_LOOK_UP_JSP = "/zipLookUp";
+
     String ZIP_LOOK_UP = "/zip-lookup";
     String STATE = "/state";
     String CITY = "/city";

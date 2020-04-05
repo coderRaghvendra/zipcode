@@ -1,6 +1,6 @@
-package com.nearpe.zipcode.repository;
+package com.nearpe.zipcode.dao;
 
-import com.nearpe.zipcode.entity.ZipCode;
+import com.nearpe.zipcode.model.ZipCode;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
