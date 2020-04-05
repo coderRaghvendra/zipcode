@@ -6,10 +6,8 @@ import com.nearpe.zipcode.response.StateZipCodeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by raghvendra.mishra on 05/04/20.
@@ -20,16 +18,16 @@ public class ZipCodeService {
     @Autowired
     private ZipCodeRepository zipCodeRepository;
 
-    public ZipCode add(ZipCode zipCode) {
-        ZipCode addedZipCode = zipCodeRepository.save(zipCode);
-        return addedZipCode;
-    }
+//    public ZipCode add(ZipCode zipCode) {
+//        ZipCode addedZipCode = zipCodeRepository.save(zipCode);
+//        return addedZipCode;
+//    }
 
     public List<String> getCitiesByState(String state) {
-        List<String> cities = new ArrayList<>();
+        Set<String> cities = new HashSet<>();
         List<ZipCode> zipCodes = zipCodeRepository.findByState(state);
         zipCodes.forEach(zipCode -> cities.add(zipCode.getCity()));
-        return cities;
+        return cities.stream().collect(Collectors.toList());
     }
 
     public StateZipCodeDto getStateZipCodeByCity(String city) {

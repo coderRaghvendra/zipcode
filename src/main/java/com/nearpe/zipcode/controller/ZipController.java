@@ -13,26 +13,26 @@ import java.util.List;
  * Created by raghvendra.mishra on 05/04/20.
  */
 @RestController
-public class ZipController {
+public class ZipController implements IController {
 
     @Autowired
     private ZipCodeService zipCodeService;
 
-    @GetMapping("/state")
-    public List<String> states(@RequestParam(value = "state") String state) {
+    @GetMapping(STATE)
+    public List<String> states(@RequestParam(value = STATE_PARAM) String state) {
         List<String> cities = zipCodeService.getCitiesByState(state);
         return cities;
     }
 
-    @GetMapping("/city")
-    public StateZipCodeDto cities(@RequestParam(value = "city") String city) {
+    @GetMapping(CITY)
+    public StateZipCodeDto cities(@RequestParam(value = CITY_PARAM) String city) {
         StateZipCodeDto stateZipCodeDto = zipCodeService.getStateZipCodeByCity(city);
         return stateZipCodeDto;
     }
 
-    @GetMapping("/zip")
-    public List<Integer> zips(@RequestParam(value = "city") String city,
-                             @RequestParam(value = "state") String state) {
+    @GetMapping(ZIP)
+    public List<Integer> zips(@RequestParam(value = CITY_PARAM) String city,
+                             @RequestParam(value = STATE_PARAM) String state) {
         List<Integer> zips = zipCodeService.getZipCodesByStateAndCity(state, city);
         return zips;
     }
