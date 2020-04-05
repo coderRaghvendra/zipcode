@@ -6,8 +6,20 @@ plugins {
 }
 
 group = 'com.nearpe'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = '1.8'
+
+def appName = 'zipcode'
+
+//Source Folders
+sourceSets {
+	main {
+		java {
+			srcDirs = []
+			srcDir 'src/main/java'
+		}
+	}
+}
 
 configurations {
 	compileOnly {
